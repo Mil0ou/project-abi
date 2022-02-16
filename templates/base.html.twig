@@ -1,19 +1,77 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #} {% block stylesheets %}{% endblock %}
+		<title>{{ title }}</title>
+        <script src="https://kit.fontawesome.com/4933de071d.js" crossorigin="anonymous"></script>
+        <script src="js/scriptmodal.js" defer></script>
+	</head>
+	<body>
+		{% if app.user %}
+        {% else %}
+		<div class="form-pos">
+			<form class="formulaire-connect" action="#" method="post">
+				<button class="closebtn" type="button"><i class="fas fa-times"></i></button>
+				<h1>Connexion</h1>
+				<table>
+					<tbody>
+						<tr>
+							<td><label for="username">Username :</label></td>
+							<td><input type="text" name="username" id="username" /></td>
+						</tr>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+						<tr>
+							<td><label for="mdp">Mot de Passe : </label></td>
+							<td><input type="text" name="password" id="mdp" /></td>
+						</tr>
+
+						<tr class="btnform">
+							<td><button type="submit">Connexion</button></td>
+							<td><button type="reset">Annuler</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		{% endif %}
+		<header>
+			<a href="{{ path('home') }}" class="lien-logo"
+				><img class="logo" src="img/logo_ABI.png" />ABI<span class="pts">.</span>com</a
+			>
+			<nav class="nav-bar">
+				<ul class="liste-nav">
+					<li class="item-nav"><a class="btn" href="{{ path('home') }}">Accueil</a></li>
+					{% if app.user %}
+					<li class="item-nav"><a class="btn" href="#">coucou</a></li>
+					{% else %}
+					<li class="item-nav"><a class="btn" href="#">Notre Expertise</a></li>
+					<li class="item-nav"><a class="btn" href="#">Qui sommes nous ?</a></li>
+					<li class="item-nav sous">
+						<a class="btn" href="#">test menu déroulant <span>&#9660;</span></a>
+						<ul class="sous-menu">
+							<li class="sous-menu-item"><a href=" {{ path('carte') }}">où somme nous ?</a></li>
+							<li class="sous-menu-item">lorem2</li>
+							<li class="sous-menu-item">lorem2</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="btn connexion">Connexion</div>
+			{% endif %}
+		</header>
+		{% block body %}{% endblock %}
+		<footer>
+			<address>
+				<small>Avenue 14 Juillet.</small>
+				<small>19100 Brive</small>
+			</address>
+			<span><small>contact : </small><a HREF="mailto:abi.contact@abi.com">abi.contact@abi.com</a></span>
+			<small><abbr title="telephone">Tel</abbr> : +33 5 66 77 88 99</small>
+			<small>© tous droits réservés</small>
+		</footer>
+		{% block javascripts %}{% endblock %}
+	</body>
 </html>
