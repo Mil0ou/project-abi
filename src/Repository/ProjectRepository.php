@@ -11,6 +11,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Project|null findOneBy(array $criteria, array $orderBy = null)
  * @method Project[]    findAll()
  * @method Project[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Project|null    findSearchProject()
  */
 class ProjectRepository extends ServiceEntityRepository
 {
@@ -19,6 +20,23 @@ class ProjectRepository extends ServiceEntityRepository
         parent::__construct($registry, Project::class);
     }
 
+    /** 
+     * @return Projects[]
+     */
+
+    public function findSearchProject($value)
+    {
+        $query = $this->createQueryBuilder('p');
+        $query->where($query->expr()->orX(
+            $query->expr()->like('p.nomProject', ':val'),
+            $query->expr()->like('p.abregeProject', ':val'),
+        ))
+            ->setParameter("val", '%' . $value . '%');
+
+        return $query
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

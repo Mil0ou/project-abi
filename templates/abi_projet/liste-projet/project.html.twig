@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %} {% block title %}liste des projets{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/style1.css" />
+<link rel="stylesheet" href="/css/styletab.css">
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="search-bar">
+        <label for="searchbar">Recherche :</label>
+        <input type="search" name="searchbar" id="searchbar">
+        <button id="btnsearch">Rechercher</button>
+		<button id="btnall">Reset</button>
+    </div>
+	<div class="contenu">
+		<table class="list">
+			<thead>
+				<th>nom</th>
+				<th>date prev debut</th>
+				<th>date prev fin</th>
+				<th>type</th>
+			</thead>
+			<tbody id="content">
+				{% include "abi_projet/liste-projet/content.html.twig" %}
+			</tbody>
+		</table>
+	</div>
+</main>
+
+{% block javascripts %}
+	<script src="js/search-project.js" defer></script>
+{% endblock %}
+{% endblock %}

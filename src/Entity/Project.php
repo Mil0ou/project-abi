@@ -50,7 +50,7 @@ class Project
     /**
      * @ORM\Column(type="date")
      */
-    private $datePrevionnelFin;
+    private $datePrevisionnelFin;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -159,14 +159,14 @@ class Project
         return $this;
     }
 
-    public function getDatePrevionnelFin(): ?\DateTimeInterface
+    public function getdatePrevisionnelFin(): ?\DateTimeInterface
     {
-        return $this->datePrevionnelFin;
+        return $this->datePrevisionnelFin;
     }
 
-    public function setDatePrevionnelFin(\DateTimeInterface $datePrevionnelFin): self
+    public function setdatePrevisionnelFin(\DateTimeInterface $datePrevisionnelFin): self
     {
-        $this->datePrevionnelFin = $datePrevionnelFin;
+        $this->datePrevisionnelFin = $datePrevisionnelFin;
 
         return $this;
     }

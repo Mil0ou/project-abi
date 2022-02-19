@@ -1,0 +1,8 @@
+{% for project in projects %}
+    <tr>
+        <td>{{ project.NomProject }}</td>
+        <td>{{ project.DatePrevisionnelDebut | date('d/m/Y') }}</td>
+        <td>{{ project.datePrevisionnelFin | date('d/m/Y') }}</td>
+        <td>{{ project.TypeProject }}</td>
+    </tr>
+{% endfor %}

@@ -347,9 +347,9 @@ p {
 }
 /*****************************footer*****************************/
 footer {
-	height: calc(9vh + 9px);
+	height: calc(5vh + 9px);
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	background: #3398cc;
 	text-align: center;
 	-webkit-box-shadow: 0px -5px 5px 2px #3a3335;
