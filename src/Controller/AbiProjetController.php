@@ -37,41 +37,30 @@ class AbiProjetController extends AbstractController
      */
     public function liste_project(ManagerRegistry $doctrine, Request $request): Response
     {
-        try {
+        if ($request->query->get('search') === 'All') {
             $repository = $doctrine->getRepository(Project::class);
             $projects = $repository->findAll();
-            if ($request->query->get('search')) {
-                if ($request->query->get('search') === 'All') {
-                    return new JsonResponse(['content' => $this->renderView('abi_projet/liste-projet/content.html.twig', [
-                        'projects' => $projects
-                    ])]);
-                }
-                $projectName = $request->query->get('search');
-                $projects = $doctrine->getRepository(Project::class)->findSearchProject($projectName);
-                return new JsonResponse(['content' => $this->renderView('abi_projet/liste-projet/content.html.twig', [
-                    'projects' => $projects
+            return new JsonResponse(['content' => $this->renderView('abi_projet/liste-projet/content.html.twig', [
+                'projects' => $projects
+            ])]);
+        }
+        if ($request->query->get('search')) {
+            $projectName = $request->query->get('search');
+            $projects = $doctrine->getRepository(Project::class)->findSearchProject($projectName);
+            if (empty($projects)) {
+                return new JsonResponse(['content' => $this->renderView('abi_projet/liste-projet/nocontent.html.twig', [
+                    'message' => 'aucun project ne correspond à votre requête'
                 ])]);
             }
-
-            return $this->render('abi_projet/liste-projet/project.html.twig', [
-                'title' => 'Liste des projets',
-                'projects' => $projects,
-            ]);
-        } catch (\Throwable $th) {
+            return new JsonResponse(['content' => $this->renderView('abi_projet/liste-projet/content.html.twig', [
+                'projects' => $projects
+            ])]);
         }
+        $repository = $doctrine->getRepository(Project::class);
+        $projects = $repository->findAll();
+        return $this->render('abi_projet/liste-projet/project.html.twig', [
+            'title' => 'Liste des projets',
+            'projects' => $projects,
+        ]);
     }
-
-    // /**
-    //  * @Route("/project/search",name="searchP")
-    //  */
-    // public function searchProjectname(ManagerRegistry $doctrine, Request $request)
-    // {
-    //     $nameProject = $request->query->get('search');
-    //     dump('test');
-    //     $projects = $doctrine->getRepository(Project::class)->findSearchProject($nameProject);
-    //     return $this->render('abi_projet/liste-projet/project.html.twig', [
-    //         'title' => 'Liste des projets',
-    //         'projects' => $projects
-    //     ]);
-    // }
 }

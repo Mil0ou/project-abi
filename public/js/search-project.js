@@ -16,7 +16,10 @@ btnSearch.addEventListener('click', function () {
 	url = encodeURI(url)
 	fetch(url, { method: 'GET' })
 		.then((response) => response.json())
-		.then((data) => (content.innerHTML = data.content))
+		.then((data) => {
+			console.log(data.content)
+			return (content.innerHTML = data.content)
+		})
 		.catch((e) => console.error(e))
 })
 
