@@ -4,10 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #} {% block stylesheets %}{% endblock %}
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #} 
+		
 		<title>{{ title }}</title>
         <script src="https://kit.fontawesome.com/4933de071d.js" crossorigin="anonymous"></script>
         <script src="js/scriptmodal.js" defer></script>
+		<link rel="stylesheet" href="/css/style1.css" />
+		{% block stylesheets %}{% endblock %}
 	</head>
 	<body>
 		{% if app.user %}

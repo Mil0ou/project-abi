@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %} {% block title %}liste des projets{% endblock %}
 
 {% block stylesheets %}
+
 <link rel="stylesheet" href="/css/styletab.css">
 {% endblock %}
 
 {% block body %}
 <main>
-<h1>Liste des Projects</h1>
+<h1>liste des Salariés</h1>
     <div class="search-bar">
         <label for="searchbar">Recherche :</label>
         <input type="search" name="searchbar" id="searchbar">
@@ -16,19 +17,18 @@
 	<div class="contenu">
 		<table class="list">
 			<thead>
-				<th>nom</th>
-				<th>date prev debut</th>
-				<th>date prev fin</th>
-				<th>type</th>
+				<th>Matricule</th>
+                <th>Nom</th>
+				<th>Prenom</th>
+				<th>Status</th>
 			</thead>
 			<tbody id="content">
-				{% include "abi_projet/liste-projet/content.html.twig" %}
+				{% include "abi_projet/liste-collaborateur/content.html.twig" %}
 			</tbody>
 		</table>
 	</div>
 </main>
 
 {% block javascripts %}
-	<script src="js/search-project.js" defer></script>
 {% endblock %}
 {% endblock %}

@@ -1,10 +1,21 @@
+@font-face {
+	font-family: 'fira';
+	src: url('FiraCodeiScript-Regular.ttf');
+}
+
 main {
 	display: flex;
 	flex-direction: column;
+	font-family: fira;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
 }
 
 div.search-bar {
-	margin-top: 1em;
+	/* margin-top: 1em; */
 	padding: 1em;
 	border: 3px solid black;
 	border-radius: 10px;
@@ -36,9 +47,19 @@ input#searchbar {
 div.contenu {
 	margin-top: 1em;
 	width: 100%;
-	height: 55vh;
+	height: 50vh;
 	overflow-y: scroll;
 }
+
+/* div.contenu::-webkit-scrollbar {
+	width: auto;
+}
+div.contenu::-webkit-scrollbar-thumb {
+	color: #3398cc;
+}
+div.contenu::-webkit-scrollbar-track {
+	color: rgba(0, 45, 247, 0.795);
+} */
 
 table.list {
 	border: 2px solid black;

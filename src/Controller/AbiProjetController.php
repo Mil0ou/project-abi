@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Collaborateur;
 use App\Entity\Project;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,6 +62,20 @@ class AbiProjetController extends AbstractController
         return $this->render('abi_projet/liste-projet/project.html.twig', [
             'title' => 'Liste des projets',
             'projects' => $projects,
+        ]);
+    }
+
+    /**
+     * @Route("/salarie",name="salarie")
+     */
+    public function liste_collaborateur(ManagerRegistry $doctrine, Request $request): Response
+    {
+
+        $repository = $doctrine->getRepository(Collaborateur::class);
+        $collaborateurs = $repository->findAll();
+        return $this->render('abi_projet/liste-collaborateur/liste-colaborateur.html.twig', [
+            'title' => 'Liste des Salariés',
+            'collaborateurs' => $collaborateurs,
         ]);
     }
 }

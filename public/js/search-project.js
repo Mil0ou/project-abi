@@ -4,6 +4,9 @@ const btnSearch = document.querySelector('#btnsearch')
 const btnReset = document.querySelector('#btnall')
 
 let param, url
+
+//le "clic" sur le bonton rechercher affiche les résultats qui correspondent a la valeur de l'input #searchbar
+//si searchbar est vide on revient avec tous les résultats
 btnSearch.addEventListener('click', function () {
 	if (inptSearch.value !== '') {
 		param = inptSearch.value
@@ -23,6 +26,7 @@ btnSearch.addEventListener('click', function () {
 		.catch((e) => console.error(e))
 })
 
+//retour de tous les résultats
 btnReset.addEventListener('click', function () {
 	inptSearch.value = ''
 	param = 'All'
@@ -34,6 +38,7 @@ btnReset.addEventListener('click', function () {
 		.catch((e) => console.error(e))
 })
 
+//permet d'utiliser la touche "Enter" à la place du "clic"
 inptSearch.addEventListener('keyup', function (e) {
 	if (e.keyCode === 13) {
 		e.preventDefault()

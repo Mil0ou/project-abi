@@ -21,10 +21,15 @@ class ProjectRepository extends ServiceEntityRepository
     }
 
     /** 
-     * @return Projects[]
+     * @return Projects[] Returns an array of Project objects
      */
-
-    public function findSearchProject($value)
+    /**
+     * Undocumented function
+     *
+     * @param string $value
+     * @return array
+     */
+    public function findSearchProject(string $value): array
     {
         $query = $this->createQueryBuilder('p');
         $query->where($query->expr()->orX(
@@ -37,9 +42,6 @@ class ProjectRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-    // /**
-    //  * @return Project[] Returns an array of Project objects
-    //  */
     /*
     public function findByExampleField($value)
     {

@@ -1,0 +1,8 @@
+{% for collaborateur in collaborateurs %}
+    <tr>
+        <td>{{ collaborateur.MatriculeCollaborateur}}</td>
+        <td>{{ collaborateur.Nom }}</td>
+        <td>{{ collaborateur.Prenom}}</td>
+        <td>{{ collaborateur.Status}}</td>
+    </tr>
+{% endfor %}
