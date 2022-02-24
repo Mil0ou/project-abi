@@ -161,26 +161,26 @@ div.form-pos {
 	background-color: #a09da0;
 }
 
-form {
+form.formulaire-connect {
 	text-align: end;
 }
 
-form > h1 {
+form.formulaire-connect > h1 {
 	text-align: center;
 }
 
-form button {
+form.formulaire-connect button {
 	font-size: 20px;
 	text-align: center;
 }
 
-form button[type='submit'],
-form button[type='reset'] {
+form.formulaire-connect button[type='submit'],
+form.formulaire-connect button[type='reset'] {
 	background-color: #3398cc;
 	color: #ececec;
 }
 
-form {
+form.formulaire-connect {
 	display: none;
 	opacity: 0;
 	background: #d0ccd0;
@@ -195,11 +195,11 @@ form {
 	box-shadow: 8px 5px 4px 3px rgba(0, 0, 0, 0.7);
 }
 
-form tr {
+form.formulaire-connect tr {
 	height: 2em;
 }
 
-form td {
+form.formulaire-connect td {
 	text-align: center;
 	width: 200px;
 }

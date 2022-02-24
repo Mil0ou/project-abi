@@ -2,14 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CollaborateurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CollaborateurRepository;
 use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=CollaborateurRepository::class)
  */
-class Collaborateur
+class Collaborateur implements UserInterface
 {
     /**
      * @ORM\Id
@@ -191,5 +192,28 @@ class Collaborateur
         $this->Password = $Password;
 
         return $this;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+    public function getSalt()
+    {
+    }
+    public function getUserIdentifier()
+    {
+        return $this->Nom;
+    }
+    public function getUsername(): string
+    {
+        return $this->Nom;
+    }
+    public function getRoles()
+    {
+        if ($this->getRole() === "ROLE_ADMIN") {
+            return ['ROLE_ADMIN'];
+        } else {
+            return ['ROLE_USER'];
+        }
     }
 }

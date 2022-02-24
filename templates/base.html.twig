@@ -16,19 +16,19 @@
 		{% if app.user %}
         {% else %}
 		<div class="form-pos">
-			<form class="formulaire-connect" action="#" method="post">
+			<form class="formulaire-connect" action="{{ path('security_login') }}" method="post">
 				<button class="closebtn" type="button"><i class="fas fa-times"></i></button>
 				<h1>Connexion</h1>
 				<table>
 					<tbody>
 						<tr>
 							<td><label for="username">Username :</label></td>
-							<td><input type="text" name="username" id="username" /></td>
+							<td><input type="text" name="_username" id="username" /></td>
 						</tr>
 
 						<tr>
 							<td><label for="mdp">Mot de Passe : </label></td>
-							<td><input type="text" name="password" id="mdp" /></td>
+							<td><input type="text" name="_password" id="mdp" /></td>
 						</tr>
 
 						<tr class="btnform">
@@ -48,7 +48,7 @@
 				<ul class="liste-nav">
 					<li class="item-nav"><a class="btn" href="{{ path('home') }}">Accueil</a></li>
 					{% if app.user %}
-					<li class="item-nav"><a class="btn" href="#">coucou</a></li>
+					<li class="item-nav"><a class="btn" href="{{ path('security_logout') }}">deconnexion</a></li>
 					{% else %}
 					<li class="item-nav"><a class="btn" href="#">Notre Expertise</a></li>
 					<li class="item-nav"><a class="btn" href="#">Qui sommes nous ?</a></li>

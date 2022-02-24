@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/styletab.css">
+{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Enregistrement d'un nouveau collaborateur</h1>
+        {{form_start(form)}}
+        <table class='form-new-collab'>
+            <tr>
+                <td>{{form_label(form.MatriculeCollaborateur)}} :</td>
+                <td>{{form_widget(form.MatriculeCollaborateur)}}</td>
+                {# <td class="error">{{form_errors(form.MatriculeCollaborateur)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Nom)}} :</td>
+                <td>{{form_widget(form.Nom)}}</td>
+                {# <td class="error">{{form_errors(form.Nom)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Prenom)}} :</td>
+                <td>{{form_widget(form.Prenom)}}</td>
+                {# <td class="error">{{form_errors(form.Prenom)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Salaire)}} :</td>
+                <td>{{form_widget(form.Salaire)}}</td>
+                {# <td class="error">{{form_errors(form.Salaire)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.SalaireBrut)}} :</td>
+                <td>{{form_widget(form.SalaireBrut)}}</td>
+                {# <td class="error">{{form_errors(form.SalaireBrut)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.IndemniteStage)}} :</td>
+                <td>{{form_widget(form.IndemniteStage)}}</td>
+                {# <td class="error">{{form_errors(form.IndemniteStage)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Photo)}} :</td>
+                <td>{{form_widget(form.Photo)}}</td>
+                <td class="error">{{form_errors(form.Photo)}}</td>
+            </tr>
+            <tr>
+                <td>{{form_label(form.Status)}} :</td>
+                <td>{{form_widget(form.Status)}}</td>
+                {# <td class="error">{{form_errors(form.Status)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Role)}} :</td>
+                <td>{{form_widget(form.Role)}}</td>
+                {# <td class="error">{{form_errors(form.Role)}}</td> #}
+            </tr>
+            <tr>
+                <td>{{form_label(form.Password)}} :</td>
+                <td>{{form_widget(form.Password)}}</td>
+                {# <td class="error">{{form_errors(form.Password)}}</td> #}
+            </tr>
+            <tr>
+                <td><input type="submit" class="btn" value="Envoyer"></td>
+                <td><input type="reset" class="btn" value="Annuler"></td>
+            </tr>
+        </table>
+    </main>
+    {{form_end(form)}}
+{% endblock %}

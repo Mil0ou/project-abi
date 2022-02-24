@@ -7,6 +7,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	font-family: fira;
+	height: 75vh;
 }
 
 h1 {
@@ -67,9 +68,60 @@ table.list {
 	width: 100%;
 }
 
-td,
-th {
+table.list td,
+table.list th {
 	border: 1px solid black;
 	text-align: center;
 	padding: 10px 15px;
+}
+
+table.form-new-collab {
+	width: 80%;
+	margin: auto;
+}
+
+table.form-new-collab td {
+	/* text-align: center; */
+	padding: 10px 15px;
+	width: 33%;
+}
+table.form-new-collab td.error {
+	padding: 0;
+}
+
+table.form-new-collab td:nth-child(2) {
+	text-align: center;
+}
+
+table.form-new-collab input {
+	width: 30ch;
+	font-size: 1.2rem;
+}
+table.form-new-collab tr:last-child {
+	text-align: center;
+}
+
+table.form-new-collab select#nouveau_collaborateur_Role {
+	font-size: 1.2rem;
+}
+
+table.form-new-collab input[type='submit'],
+table.form-new-collab input[type='reset'] {
+	text-decoration: none;
+	color: #d0ccd0;
+	background-color: #3398cc;
+	padding: 0.4em 0.75em;
+	border-radius: 15px;
+	transition: all 0.2s ease-in-out;
+}
+
+table.form-new-collab input[type='submit']:hover,
+table.form-new-collab input[type='reset']:hover {
+	color: #3398cc;
+	background-color: #3a3335;
+}
+.error {
+	color: #f55d3e;
+	font-weight: 800;
+	font-size: 0.8rem;
 }
