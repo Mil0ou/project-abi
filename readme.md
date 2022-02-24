@@ -25,3 +25,7 @@
 
 5. id de connection : Durand et password: testpass
 6. adresse possible : 1. "/project" 2. "/newc" 3. "/salarie"
+7. lancez le serveur local
+```console
+>$ symfony server:start -d
+```
